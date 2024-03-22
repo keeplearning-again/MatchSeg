@@ -30,7 +30,7 @@ Automated medical image segmentation methods heavily rely on large annotated dat
 ### Prepare datasets for MatchSeg
 The training of our model uses [HAM-10000](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T), [GlaS](https://www.kaggle.com/datasets/sani84/glasmiccai2015-gland-segmentation), [Breast Ultrasound Dataset B(BUS)](http://www2.docm.mmu.ac.uk/STAFF/M.Yap/dataset.php), [BUSI](https://scholar.cu.edu.eg/?q=afahmy/pages/dataset) datasets.
 
-We prepare the datasets as the more easy ways for training and you can download it from this dataset [link]() (Password: ). The dataset should be saved to $ROOT/datasets
+We prepare the datasets as the more easy ways for training and you can download it from this dataset [link](https://pan.baidu.com/s/1Z0XKf6HbQc-a2oCCxB0Xkg) (Password: yp9e). The dataset should be saved to $ROOT/datasets
 
 -  HAM10000 Dataset Preparation
     - Due to the HAM10000 dataset being provided without differentiation among its seven categories (actinic keratoses and intraepithelial carcinoma (AKIEC), basal cell carcinoma (BCC), benign keratosis-like lesions (BKL), dermatofibroma (DF), melanoma (MEL), melanocytic nevi (NV), and vascular lesions (VASC)), it is necessary to execute the script below to separate the images and masks into their respective categories.
@@ -41,11 +41,43 @@ We prepare the datasets as the more easy ways for training and you can download 
 
 
 After processing, the datasets should be organized as follows:
-<!-- tree -L 3 -N  {dir} > directory_structure.txt -->
+```
+├─bus
+│  ├─images
+│  └─masks
+├─busi
+│  ├─images
+│  └─masks
+├─glas
+│  ├─images
+│  └─masks
+└─HAM10000
+    ├─AKIEC
+    │  ├─images
+    │  └─masks
+    ├─BCC
+    │  ├─images
+    │  └─masks
+    ├─BKL
+    │  ├─images
+    │  └─masks
+    ├─DF
+    │  ├─images
+    │  └─masks
+    ├─MEL
+    │  ├─images
+    │  └─masks
+    ├─NV
+    │  ├─images
+    │  └─masks
+    └─VASC
+        ├─images
+        └─masks
+```
 
 ## Training
 
-We use single RTX30990/4090 for training:
+We use single RTX3090/4090 for training:
 ```bash
 bash train_single_domain.sh
 bash train_cross_domain.sh
